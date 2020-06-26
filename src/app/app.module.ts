@@ -21,7 +21,7 @@ const appRoutes: Routes = [
   {
     path: '',
     component: NotesComponent,
-    pathMatch: ''
+    pathMatch: 'full'
   },
   {
     path: '**',
@@ -39,8 +39,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
-    AppRoutingModule
+    RouterModule.forRoot(appRoutes, {enableTracing:true})
   ],
   providers: [],
   bootstrap: [AppComponent]
