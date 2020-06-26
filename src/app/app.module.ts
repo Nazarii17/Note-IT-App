@@ -18,3 +18,4 @@ import { NavigationComponent } from './navigation/navigation.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
