@@ -13,9 +13,9 @@ export class ApiService {
   private BASE_URL =
     // window["cfgApiBaseUrl"] +
     "http://localhost:8082/api";
-  public ALL_NOTEBOOKS_URL = `${this.BASE_URL}/notebooks/all`;
+  public ALL_NOTEBOOKS_URL = `http://localhost:8082/api/notebooks/all`;
   private SEND_FEEDBACK_URL = `${this.BASE_URL}/feedback`;
-  private SAVE_UPDATE_NOTEBOOK = `${this.BASE_URL}/notebooks`;
+  private SAVE_UPDATE_NOTEBOOK = `http://localhost:8082/api/notebooks`;
   private DELETE_NOTEBOOK_URL = `${this.BASE_URL}/notebooks/`;
   private ALL_NOTES_URL = `${this.BASE_URL}/notes/all`;
   private NOTES_BY_NOTEBOOK_URL = `${this.BASE_URL}/notes/byNotebook/`;
@@ -32,4 +32,9 @@ export class ApiService {
   postFeedback(feedback: FeedbackViewModel): Observable<any> {
     return this.http.post(this.SEND_FEEDBACK_URL, feedback);
   }
+
+  postNotebook(notebook: Notebook): Observable<Notebook>{
+    return this.http.post<Notebook>(this.SAVE_UPDATE_NOTEBOOK, notebook)
+  }
+
 }
