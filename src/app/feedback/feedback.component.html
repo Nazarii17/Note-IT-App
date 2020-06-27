@@ -49,8 +49,23 @@
             name="feedback"
             placeholder="Your feedback"
             rows="10"
-            [(ngModel)]="model.feedback">
+            [(ngModel)]="model.feedback"
+            #feedback="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && feedback.invalid }"
+            required minlength="10" maxlength="13">
 			    </textarea>
+          <!--Input validation group-->
+          <div *ngIf="f.submitted && feedback.invalid">
+            <!--Individual validation errors-->
+            <div *ngIf="feedback.errors?.required" class="invalid-input">Field is required</div>
+            <div *ngIf="feedback.errors?.minlength" class="invalid-input">Feedback is too short, should be at least 10
+              characters
+            </div>
+            <!--Fix it-->
+            <div *ngIf="this.feedback.value.length > 12 "
+                 class="invalid-input">Feedback is too long, should be less than 13 characters
+            </div>
+          </div>
         </div>
         <!--Submit-->
         <button type="submit" class="btn btn-info pull-right">
