@@ -2,7 +2,7 @@
   <div class="row">
     <div class="offset-3"></div>
     <div class="col-md-6">
-      <form name="form" #f="ngForm" (submit)="sendFeedback()" novalidate class="feedback-form">
+      <form name="form" #f="ngForm" (ngSubmit)="sendFeedback()" novalidate class="feedback-form">
         <!-- Name -->
         <div class="form-group">
           <label for="name">First Name</label>
@@ -35,6 +35,7 @@
             [(ngModel)]="model.feedback">
 			    </textarea>
         </div>
+        <!--Submit-->
         <button type="submit" class="btn btn-info pull-right">
           <i class="fa fa-envelope-o"></i>
           <span> Send Feedback</span>
