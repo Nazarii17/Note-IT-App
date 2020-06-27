@@ -18,7 +18,12 @@ export class FeedbackComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Method to test input form;
+  sendFeedback(): void {
+    alert('Name ' + this.model.name + ',\nEmail ' + this.model.email + ',\nFeedback ' + this.model.feedback );
+  }
 }
+
 
 export interface FeedbackViewModel {
   name: string;
