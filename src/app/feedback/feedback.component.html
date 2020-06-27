@@ -18,7 +18,7 @@
           <!--Input validation group-->
           <div *ngIf="f.submitted && name.invalid">
             <!--Individual validation errors-->
-            <div *ngIf="name.errors?.required" class="invalid-input">Name is not valid</div>
+            <div *ngIf="name.errors?.required" class="invalid-input">Field is required</div>
           </div>
         </div>
         <!-- Email -->
@@ -29,7 +29,16 @@
                  class="form-control"
                  name="email"
                  placeholder="Your email"
-                 [(ngModel)]="model.email"/>
+                 [(ngModel)]="model.email"
+                 #email="ngModel"
+                 [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+                 required email/>
+          <!--Input validation group-->
+          <div *ngIf="f.submitted && email.invalid">
+            <!--Individual validation errors-->
+            <div *ngIf="email.errors?.required" class="invalid-input">Field is required</div>
+            <div *ngIf="email.errors?.email" class="invalid-input">Email is not valid email</div>
+          </div>
         </div>
         <!-- Feedback -->
         <div class="form-group">
