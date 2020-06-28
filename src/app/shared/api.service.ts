@@ -33,7 +33,7 @@ export class ApiService {
     return this.http.post(this.SEND_FEEDBACK_URL, feedback);
   }
 
-  postNotebook(notebook: Notebook): Observable<Notebook>{
+  postNotebook(notebook: Notebook): Observable<Notebook> {
     return this.http.post<Notebook>(this.SAVE_UPDATE_NOTEBOOK, notebook)
   }
 

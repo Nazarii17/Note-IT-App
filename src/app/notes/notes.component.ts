@@ -46,5 +46,13 @@ export class NotesComponent implements OnInit {
     )
   }
 
+  updateNotebook(updatedNotebook: Notebook) {
+    this.apiService.postNotebook(updatedNotebook).subscribe(
+      result => {
+
+      }, error => {
+        alert("An error has occurred while saving the notebook");
+      })
+  }
 
 }
